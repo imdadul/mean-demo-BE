@@ -1,0 +1,6 @@
+{
+  "baseURL": "",
+  "mongoDB": {
+    "connectionString":"mongodb://imdad:123@ds145193.mlab.com:45193/mean-demo"
+  }
+}
