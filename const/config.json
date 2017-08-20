@@ -1,6 +1,13 @@
 {
-  "baseURL": "",
-  "mongoDB": {
-    "connectionString":"mongodb://imdad:123@ds145193.mlab.com:45193/mean-demo"
+  "dev":{
+    "baseURL": "",
+    "mongoDB": {
+      "connectionString":"mongodb://imdad:123@ds145193.mlab.com:45193/mean-demo"
+    }
+  },
+  "test":{
+    "mongoDB": {
+      "connectionString":"mongodb://imdad:123@ds157809.mlab.com:57809/mean-demo-test"
+    }
   }
 }

@@ -100,9 +100,11 @@ router.put('/:id', JWTHelper.middlewareValidateUser, function(req, res, next) {
 router.delete('/:_id', JWTHelper.middlewareValidateUser, function(req, res, next) {
     var toDeleteMovieId=req.params._id;
     Movie.remove({_id:toDeleteMovieId},function(err) {
-        if (err)
+        if(err){
+            sendServerError(res)
+        }
 
-            push_notification.notifyAllUsers(req.user,EVENTS.PUSH_MOVIE_DELETED,{_id:toDeleteMovieId});
+        push_notification.notifyAllUsers(req.user,EVENTS.PUSH_MOVIE_DELETED,{_id:toDeleteMovieId});
         return res.send({
             success: true,
             msg:EVENTS.MOVIE_DELETE_SUCCESS

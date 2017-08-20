@@ -16,7 +16,6 @@ var User = require('./database/user');
 
 var app = express();
 var http = require('http');
-var server = http.createServer(app);
 
 
 // view engine setup
@@ -44,19 +43,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-
-// var push_notification = require('./push-notification/push-notification');
-// var io = require('socket.io').listen(server);
-// io.on('connection', function(client){
-//     console.log('a user connected');
-//     push_notification.addClient(client);
-//     client.on('disconnect', function(){
-//         console.log('user disconnected');
-//         push_notification.removeClient(client);
-//     });
-// });
-
 
 //  MongoDB Setup
 
