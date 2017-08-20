@@ -1,8 +1,8 @@
 # Mean Demo
 
-Run the Server:
+<h3>Run the Server:</h3>
 
-Open cmd or bash run these commands,
+Open cmd or bash & run these commands,
 
 ```
 git clone https://github.com/imdadul/mean-demo-BE.git
@@ -12,7 +12,13 @@ npm start
 ```
 The Backend server will start in localhost:3001
 
-# Database Configuration
+<h3>Run unit tests:</h3>
+
+```
+npm test
+```
+
+<h3>Database Configuration</h3>
 
 Currently this server is using a remote mongodb database from mongolab.
 
