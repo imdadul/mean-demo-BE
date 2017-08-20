@@ -16,6 +16,9 @@ var push_notification = require('../push-notification/push-notification');
 var EVENTS = require('../util/EVENTS');
 var Movie = require('../database/movie');
 
+/**
+ * Get all movies
+ */
 
 router.get('/', JWTHelper.middlewareValidateUser, function(req, res, next) {
     Movie.find({}).populate('ratings.user','email _id').exec(function(err, movies) {

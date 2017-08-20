@@ -50,8 +50,7 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 UserSchema.methods.generateToken = function() {
     var JWTHelper = require('../util/jwt');
     var signed = JWTHelper.sign({
-        email: this.email,
-        type: this.type
+        email: this.email
     });
 
     this.lastLogin = Date.now();

@@ -1,3 +1,9 @@
+/**
+ * This is an Express server with MongoDB, does some basic CRUD operation on movie collection
+ * Also supports Token based authentication with passport.
+ * @author Imdadul Huq <imdadul.huq3@gmail.com>
+ */
+
 var express = require('express');
 var Config = require('./util/const')('config');
 
@@ -58,6 +64,9 @@ mongoose.connect(Config.mongoDB.connectionString, {
     useMongoClient: true
 });
 
+/**
+ * @description This passport middleware checks if the given email & password from the req is valid.
+ */
 passport.use(new LocalStrategy({usernameField: 'email',passwordField: 'password'},function(email, password, cb) {
 
     User.findOne({ email: email },  function(err, u) {

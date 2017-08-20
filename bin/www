@@ -5,7 +5,6 @@
  */
 
 var app = require('../app');
-
 var debug = require('debug')('mean_demo:server');
 var http = require('http');
 
@@ -31,6 +30,9 @@ server.on('error', onError);
 server.on('listening', onListening);
 console.log('Server running in port'+port)
 
+/**
+ * @description Start the socket.io instance.
+ */
 require('../push-notification/sockets')(server);
 
 

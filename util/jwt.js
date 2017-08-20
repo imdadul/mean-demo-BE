@@ -5,9 +5,19 @@ var User = require('../database/user');
 
 var keys = require('../util/const')('keys');
 
+/**
+ * @description Handles authentication token.
+ * @class
+ */
 function JWTHelper() {
 
 }
+
+/**
+ * @param {object} payload - User information with email prop
+ * @returns {string}
+ * @description Signs a given payload using the jwt key.
+ */
 
 JWTHelper.prototype.sign = function(payload) {
     payload.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 1);
@@ -17,6 +27,9 @@ JWTHelper.prototype.sign = function(payload) {
     return token;
 };
 
+/**
+ * @description This middleware validates the user request by decrypting the Auth header token.
+ */
 JWTHelper.prototype.middlewareValidateUser = function(req, res, next) {
     if (!req.header('Authorization')) {
         return res.status(401).send({

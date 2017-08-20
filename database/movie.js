@@ -1,8 +1,8 @@
-/*
+/**
  *      movie.js
- *      MongoDB Database Schema File for schema 'Movie'
+ *       MongoDB Database Schema File for schema 'Movie'
  *
- *      Represents a registered Movie in the system.
+ *       Represents a registered Movie in the system.
  */
 
 var mongoose = require('mongoose')
@@ -24,6 +24,10 @@ var MovieSchema = new mongoose.Schema({
     }
 });
 
+/**
+ * @description Calculates a new property (avgRating) which is not in the database, sends to the response.
+ */
+
 MovieSchema.virtual('avgRating').get(function () {
     if(this.ratings.length==0) return 0;
     var count = 0;
@@ -33,16 +37,5 @@ MovieSchema.virtual('avgRating').get(function () {
     return count/this.ratings.length;
 });
 
-MovieSchema.methods.getYourRating = function(req) {
-    for(var i = 0;i<this.ratings.length ; i++){
-        if(this.ratings[i].user.email==req.user.email){
-            return this.ratings[i].rating;
-        }
-    }
-};
-
-// MovieSchema.methods.sendPushNotification = function (user,action) {
-//     push_notification.movieDataUpdated(user,action,this);
-// }
 
 module.exports = mongoose.model('Movie', MovieSchema);

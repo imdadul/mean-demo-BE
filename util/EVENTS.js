@@ -1,6 +1,9 @@
 /**
  * Created by MD.ImdadulHuq on 17-Aug-17.
  */
+/** @constant
+ @type {string}
+ */
 
 module.exports = {
     PUSH_MOVIE_RATED:'PUSH_MOVIE_RATED',

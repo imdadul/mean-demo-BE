@@ -2,13 +2,13 @@ require("../bin/www");
 var User = require('../database/user');
 var request = require("request");
 
-var base_url = "http://localhost:3002"
+var base_url = "http://localhost:3002"; // In order to change this port, also change in npm test script at package.json
 
 
 describe("Authentication", function() {
     describe("Signup", function() {
 
-        it("Signup return status to 200", function(done) {
+        it("Signup return status to 200 & JWT should be defined in response", function(done) {
             request.post({url:base_url+'/users/signup',
                     form: {email:'imdadul.huq3@gmail.com',password:'123'}},
                 function(err,response,body){
@@ -28,7 +28,7 @@ describe("Authentication", function() {
                 exit(1)
             })
         })
-        it("Login return status to 200", function(done) {
+        it("Login return status to be 200 & JWT should be defined in response", function(done) {
             request.post({url:base_url+'/users/login',
                     form: {email:'imdadul.huq3@gmail.com',password:'123'}},
                 function(err,response,body){
